@@ -1,4 +1,3 @@
-import random
 class RubiksCube:
     def __init__(self):
         self.sides = [ [list(input().split()) for _ in range(2)] for i in range(6) ]
