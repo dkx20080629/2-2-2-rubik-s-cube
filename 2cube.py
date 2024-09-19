@@ -1,3 +1,4 @@
+import random
 class RubiksCube:
     def __init__(self):
         self.sides = [ [list(input().split()) for _ in range(2)] for i in range(6) ]
@@ -147,6 +148,15 @@ def step1(cube):
                     cube.U()
                     cube.F_()
                     print("F U F' U' F U F'")
+                elif cube.sides[4][1][1] == "w":
+                    cube.F()
+                    cube.U_()
+                    cube.F_()
+                    cube.U()
+                    cube.F()
+                    cube.U_()
+                    cube.F_()
+                    print("F U' F' U F U' F'")
                 else:
                     cube.U()
                     print("U")
@@ -238,7 +248,7 @@ def step3(cube):
     elif cube.sides[3][0][0] == cube.sides[3][0][1]:
         cube.U_()
         print("U'")
-    elif cube.sides[1][0][0] == cube.sides[1][0][0]:
+    elif cube.sides[1][0][0] == cube.sides[1][0][1]:
         cube.U()
         print("U")
     elif cube.sides[2][0][0] != cube.sides[2][0][1] and cube.sides[1][0][0] != cube.sides[1][0][1] and cube.sides[3][0][0] != cube.sides[3][0][1] and cube.sides[4][0][0] != cube.sides[4][0][1]:
@@ -334,11 +344,10 @@ def step4(cube):
 cube = RubiksCube()
 cube.print_sides()
 step1(cube)
+print("-----")
 step2(cube)
+print("-----")
 step3(cube)
+print("-----")
 step4(cube)
 cube.print_sides()
-if cube.sides == [[['w', 'w'], ['w', 'w']], [['g', 'g'], ['g', 'g']], [['o', 'o'], ['o', 'o']], [['b', 'b'], ['b', 'b']], [['r', 'r'], ['r', 'r']], [['y', 'y'], ['y', 'y']]]:
-    print("Congratulations!")
-else:
-    print("Error")
