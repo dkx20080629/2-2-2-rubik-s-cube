@@ -338,7 +338,7 @@ step2(cube)
 step3(cube)
 step4(cube)
 cube.print_sides()
-if cube.sides == [[['w', 'w'], ['w', 'w']], [['b', 'b'], ['b', 'b']], [['r', 'r'], ['r', 'r']], [['g', 'g'], ['g', 'g']], [['o', 'o'], ['o', 'o']], [['y', 'y'], ['y', 'y']]]:
+if cube.sides == [[['w', 'w'], ['w', 'w']], [['g', 'g'], ['g', 'g']], [['o', 'o'], ['o', 'o']], [['b', 'b'], ['b', 'b']], [['r', 'r'], ['r', 'r']], [['y', 'y'], ['y', 'y']]]:
     print("Congratulations!")
 else:
     print("Error")
