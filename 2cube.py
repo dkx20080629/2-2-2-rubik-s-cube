@@ -1,7 +1,6 @@
 class RubiksCube:
     def __init__(self):
         self.sides = [ [list(input().split()) for _ in range(2)] for i in range(6) ]
-        #self.sides = [[["w","w"],["w","w"]],[["g","g"],["g","g"]],[["o","o"],["o","o"]],[["b","b"],["b","b"]],[["r","r"],["r","r"]],[["y","y"],["y","y"]]]
     def matrix_turn_left(self, matrix):
         n = len(matrix)
         for i in range(n // 2):
@@ -343,17 +342,6 @@ def step4(cube):
         print("D ---")
 
 cube = RubiksCube()
-"""cube.F()
-cube.D()
-cube.F()
-cube.U()
-cube.R()
-cube.F_()
-cube.R_()
-cube.U_()
-cube.R_()
-cube.D_()
-cube.F()"""
 cube.print_sides()
 print("-----")
 step1(cube)
