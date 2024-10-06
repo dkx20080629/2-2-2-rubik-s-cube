@@ -1,6 +1,7 @@
 class RubiksCube:
     def __init__(self):
         self.sides = [ [list(input().split()) for _ in range(2)] for i in range(6) ]
+        #self.sides = [[["w","w"],["w","w"]],[["g","g"],["g","g"]],[["o","o"],["o","o"]],[["b","b"],["b","b"]],[["r","r"],["r","r"]],[["y","y"],["y","y"]]]
     def matrix_turn_left(self, matrix):
         n = len(matrix)
         for i in range(n // 2):
@@ -39,6 +40,7 @@ class RubiksCube:
             self.sides[3][0][i] = self.sides[2][0][i]
             self.sides[2][0][i] = a
         self.matrix_turn_left(self.sides[5])
+        print("U'")
 
     def F(self):
         for i in range(2):
@@ -116,14 +118,14 @@ def step1(cube):
                     cube.F()
                     cube.U()
                     cube.F_()
-                    print("F U F'")
+                    print("F U F' ---")
                 elif cube.sides[1][0][1] == "w":
                     cube.U()
                     cube.U()
                     cube.F()
                     cube.U_()
                     cube.F_()
-                    print("U2 F U' F'")
+                    print("U2 F U' F' ---")
                 elif cube.sides[5][1][1] == "w":
                     cube.R()
                     cube.U()
@@ -137,7 +139,7 @@ def step1(cube):
                     cube.R()
                     cube.U_()
                     cube.R_()
-                    print("R U2 R' F U F' U2 R U' R'")
+                    print("R U2 R' F U F' U2 R U' R' ---")
                 elif cube.sides[1][1][0] == "w":
                     cube.F()
                     cube.U()
@@ -146,7 +148,7 @@ def step1(cube):
                     cube.F()
                     cube.U()
                     cube.F_()
-                    print("F U F' U' F U F'")
+                    print("F U F' U' F U F' ---")
                 elif cube.sides[4][1][1] == "w":
                     cube.F()
                     cube.U_()
@@ -155,13 +157,13 @@ def step1(cube):
                     cube.F()
                     cube.U_()
                     cube.F_()
-                    print("F U' F' U F U' F'")
+                    print("F U' F' U F U' F' ---")
                 else:
                     cube.U()
-                    print("U")
+                    print("U ---")
                 if cube.sides[0] == [["w","w"],["w","w"]]: break
         cube.D()
-        print("D")
+        print("D ---")
 
 def step2(cube):
     print("Step 2")
@@ -177,7 +179,7 @@ def step2(cube):
                 cube.U()
                 cube.U()
                 cube.R()
-                print("R' U' R U' R' U2 R")
+                print("R' U' R U' R' U2 R ---")
             elif cube.sides[5][1][0] == "y" and cube.sides[1][0][1] == "y" and cube.sides[2][0][1] == "y" and cube.sides[3][0][1] == "y":
                 cube.R()
                 cube.U()
@@ -187,7 +189,7 @@ def step2(cube):
                 cube.U()
                 cube.U()
                 cube.R_()
-                print("R U R' U R U2 R'")
+                print("R U R' U R U2 R' ---")
             elif cube.sides[5][0][0] == "y" and cube.sides[5][1][1] == "y" and cube.sides[1][0][0] == "y" and cube.sides[2][0][1] == "y":
                 cube.F()
                 cube.R_()
@@ -197,7 +199,7 @@ def step2(cube):
                 cube.R()
                 cube.U_()
                 cube.R_()
-                print("F R' F' R U R U' R'")
+                print("F R' F' R U R U' R' ---")
             elif cube.sides[5][0][1] == "y" and cube.sides[5][1][1] == "y" and cube.sides[1][0][0] == "y" and cube.sides[3][0][1] == "y":
                 cube.R()
                 cube.U()
@@ -207,7 +209,7 @@ def step2(cube):
                 cube.F()
                 cube.R()
                 cube.F_()
-                print("R U R' U' R' F R F'")
+                print("R U R' U' R' F R F' ---")
             elif cube.sides[5][0][1] == "y" and cube.sides[5][1][1] == "y" and cube.sides[4][0][0] == "y" and cube.sides[4][0][1] == "y":
                 cube.F()
                 cube.R()
@@ -215,7 +217,7 @@ def step2(cube):
                 cube.R_()
                 cube.U_()
                 cube.F_()
-                print("F R U R' U' F'")
+                print("F R U R' U' F' ---")
             elif cube.sides[1][0][0] == "y" and cube.sides[1][0][1] == "y" and cube.sides[3][0][0] == "y" and cube.sides[3][0][1] == "y":
                 cube.R()
                 cube.R()
@@ -226,7 +228,7 @@ def step2(cube):
                 cube.U()
                 cube.R()
                 cube.R()
-                print("R2 U2 R' U2 R2")
+                print("R2 U2 R' U2 R2 ---")
             elif cube.sides[1][0][1] == "y" and cube.sides[3][0][0] == "y" and cube.sides[4][0][0] == "y" and cube.sides[4][0][1] == "y":
                 cube.F()
                 for i in range(2):
@@ -235,21 +237,21 @@ def step2(cube):
                     cube.R_()
                     cube.U_()
                 cube.F_()
-                print("F ( R U R' U')*2 F'")
+                print("F ( R U R' U')*2 F' ---")
             cube.U()
-            print("U")
+            print("U ---")
 def step3(cube):
     print("Step 3")
     if cube.sides[2][0][0] == cube.sides[2][0][1]:
         cube.U()
         cube.U()
-        print("U2")
+        print("U2 ---")
     elif cube.sides[3][0][0] == cube.sides[3][0][1]:
         cube.U_()
-        print("U'")
+        print("U' ---")
     elif cube.sides[1][0][0] == cube.sides[1][0][1]:
         cube.U()
-        print("U")
+        print("U ---")
     elif cube.sides[2][0][0] != cube.sides[2][0][1] and cube.sides[1][0][0] != cube.sides[1][0][1] and cube.sides[3][0][0] != cube.sides[3][0][1] and cube.sides[4][0][0] != cube.sides[4][0][1]:
         cube.R()
         cube.U()
@@ -265,7 +267,7 @@ def step3(cube):
         cube.R()
         cube.U_()
         cube.R_()
-        print("R U R' F' R U R' U' R' F R2 U' R'")
+        print("R U R' F' R U R' U' R' F R2 U' R' ---")
     for i in range(4):
         if cube.sides[4][0][0] == cube.sides[4][0][1] and cube.sides[1][0][0] == cube.sides[1][0][1] and cube.sides[2][0][0] == cube.sides[2][0][1] and cube.sides[3][0][0] == cube.sides[3][0][1]:
             break
@@ -284,10 +286,10 @@ def step3(cube):
             cube.R()
             cube.U_()
             cube.R_()
-            print("R U R' F' R U R' U' R' F R2 U' R'")
+            print("R U R' F' R U R' U' R' F R2 U' R' ---")
         else:
             cube.U()
-            print("U")
+            print("U ---")
 
 def step4(cube):
     if cube.sides[1][1][0] != cube.sides[1][1][1] and cube.sides[2][1][0] != cube.sides[2][1][1] and cube.sides[3][1][0] != cube.sides[3][1][1] and cube.sides[4][1][0] != cube.sides[4][1][1]:
@@ -305,7 +307,7 @@ def step4(cube):
         cube.R()
         cube.D()
         cube.R()
-        print("R' D' R F R' D' R D R F' R2 D R")
+        print("R' D' R F R' D' R D R F' R2 D R ---")
     for i in range(2):
         if cube.sides[4][1][0] == cube.sides[4][1][1] and cube.sides[1][1][0] == cube.sides[1][1][1] and cube.sides[2][1][0] == cube.sides[2][1][1] and cube.sides[3][1][0] == cube.sides[3][1][1]:
             break
@@ -324,24 +326,36 @@ def step4(cube):
             cube.R()
             cube.D()
             cube.R()
-            print("R' D' R F R' D' R D R F' R2 D R")
+            print("R' D' R F R' D' R D R F' R2 D R ---")
         elif cube.sides[1][1][0] == cube.sides[1][1][1]:
             cube.D_()
-            print("D'")
+            print("D' ---")
         elif cube.sides[2][1][0] == cube.sides[2][1][1]:
             cube.D()
             cube.D()
-            print("D2")
+            print("D2 ---")
         elif cube.sides[3][1][0] == cube.sides[3][1][1]:
             cube.D()
-            print("D")
+            print("D ---")
 
     while cube.sides[4][1] != cube.sides[4][0]:
         cube.D()
-        print("D")
+        print("D ---")
 
 cube = RubiksCube()
+"""cube.F()
+cube.D()
+cube.F()
+cube.U()
+cube.R()
+cube.F_()
+cube.R_()
+cube.U_()
+cube.R_()
+cube.D_()
+cube.F()"""
 cube.print_sides()
+print("-----")
 step1(cube)
 print("-----")
 step2(cube)
